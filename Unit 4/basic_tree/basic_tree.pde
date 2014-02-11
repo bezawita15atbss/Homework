@@ -1,36 +1,39 @@
 void setup() {
-  size(400, 400);
+  size(700, 700);
   translate(width/2, height); 
-  strokeWeight(5);
-    rotate(-PI/2);
-  drawTree(2);
+  scale(0.3, 0.3);
+  // strokeWeight(2);
+  rotate(-PI/2);
+  drawTree(10, 20);
 }
 
-void drawTree(int depth) {
+void drawTree(int depth, int thickness) {
   if (depth>0) {
     //draw base
     stroke(0, 0, 255);
+    strokeWeight(thickness);
     line(0, 0, 100, 0);
 
     translate(100, 0);
 
-    //draw left branch
+    
+      //draw left branch
     pushMatrix();
-    rotate(-PI/4);
+    rotate(radians(random(-30, -270)));
     stroke(255, 0, 0);
     line(0, 0, 100, 0);
     translate(100, 0);
-    drawTree(depth-1);
+    drawTree(depth-1, thickness-2);
     popMatrix();
-   
+
 
     //draw the right branch
     pushMatrix();
-    rotate(PI/4);
+    rotate(radians(random(0, 50)));
     stroke(0, 255, 0);
     line(0, 0, 100, 0);
     translate(100, 0);
-    drawTree(depth-1);
+    drawTree(depth-1, thickness);
     popMatrix();
   }
 }
