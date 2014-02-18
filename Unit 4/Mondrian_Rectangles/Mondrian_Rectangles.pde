@@ -48,5 +48,6 @@ void drawRectangles(float rectangleWidth, float rectangleHeight) {
   
   if(randomWidth>25){
     drawRectangles(randomWidth, randomHeight);
+    
   }
 }
